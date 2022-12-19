@@ -73,7 +73,6 @@ export async function getInputs(): Promise<IGitSourceSettings> {
   // SHA?
   else if (result.ref.match(/^[0-9a-fA-F]{40}$/)) {
     result.commit = result.ref
-    result.ref = ''
   }
   core.debug(`ref = '${result.ref}'`)
   core.debug(`commit = '${result.commit}'`)
