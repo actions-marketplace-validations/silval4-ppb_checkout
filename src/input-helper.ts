@@ -73,6 +73,7 @@ export async function getInputs(): Promise<IGitSourceSettings> {
   // SHA?
   else if (result.ref.match(/^[0-9a-fA-F]{40}$/)) {
     result.commit = result.ref
+    result.ref = ''
   }
   core.debug(`ref = '${result.ref}'`)
   core.debug(`commit = '${result.commit}'`)
@@ -129,5 +130,6 @@ export async function getInputs(): Promise<IGitSourceSettings> {
   result.githubServerUrl = core.getInput('github-server-url')
   core.debug(`GitHub Host URL = ${result.githubServerUrl}`)
 
+  core.info('Result commit is' + result.commit + ' and sha is ' + result.ref) 
   return result
 }

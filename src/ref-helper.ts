@@ -30,6 +30,7 @@ export async function getCheckoutInfo(
   // SHA only
   if (!ref) {
     result.ref = commit
+    core.info('REf helper is sha only and result ref is ', result.ref) 
   }
   // refs/heads/
   else if (upperRef.startsWith('REFS/HEADS/')) {
@@ -60,6 +61,7 @@ export async function getCheckoutInfo(
     }
   }
 
+  core.info('REf helper Result commit is' + result.commit + ' and sha is ' + result.ref) 
   return result
 }
 
